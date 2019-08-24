@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="javascript" src="assets/javascript.js">
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<body class="container">
+    <header class="bg-primary text-white p-3 text center">
+        <h1>NEW YORK TIMES SEARCH</h1>
+    </header>
+    <form class="border border-primary mt-5 mb-5">
+        <h2 class="bg-primary text-white p-3"> Search Parameters </h2>
+        <div class="form-group">
+            <label for="search"> Search Term:</label>
+            <input class="form-control" id="searchTerm"  placeholder="Enter search term">
+        </div>
+        <div class="form-group">
+            <label for="numberofRecords">Number of Records to Retrieve:</label>
+            <select class="form-control" id="numberRecords">
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+            </select>
+          </div>
+        <div class="form-group">
+            <label for="start">Start Year (Optional):</label>
+            <input class="form-control" id="startYear"  placeholder="Enter start year">
+        </div>
+        <div class="form-group">
+            <label for="end"> End Year (Optional):</label>
+            <input class="form-control" id="endYear"  placeholder="Enter search term">
+        </div>
+        <button class="btn btn-primary" id="search">Search</button>
+        <button class="btn btn-primary" id="clear">Clear Results</button>
+    </form>
+
+<container class="border border-primary">
+    <header class="bg-primary text-white p-3"> Top Articles</header>
+    <div id="results">Submit</div>
+</container>
+
+<script>
+    $(document).ready(function(){
+        let quearyURL = '??'
+        let key = '00'
+
+        $(document).on("click", '#search', function(event) {
+            event.preventDefault()
+            let searchterm = $("#searchterm");
+            let number = $("#numberRecords");
+            let start = $("startYear");
+            let end = $("endYear")
+            $("#results").append(quearyURL + searchterm + key + number)
+   });
+
+
+        $(document).on('click', '#clear', function(event){
+            event.preventDefault();
+                clear()
+                })
+        
+        function clear(){
+            $('#results').text('');
+            console.log('blah');
+        }
+    });
+
+</script>
+</body>
+</html>
